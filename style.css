@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 2px solid red; */
+  transition: all 0.55s ease-in-out;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+html {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  scroll-behavior: smooth;
+}
+
+header {
+  width: 100%;
+  padding: 10px 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+}
+
+header h1 {
+  color: #e76f51;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+header .btn-generator {
+  background-color: #e76f51;
+  color: white;
+  font-size: larger;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.middleContainer {
+  margin-top: 60px;
+  width: 100%;
+  /* height: 90vh; */
+  padding: 75px 3%;
+  /* background-color: #adadadc5; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.text {
+  padding: 20px;
+}
+
+.middleContainer .text h3 {
+  color: #e76f51;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.middleContainer .text h1 {
+  text-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.middleContainer .text p {
+  font-size: 20px;
+  word-spacing: 3px;
+  margin-bottom: 40px;
+}
+
+.middleContainer .text button {
+  background-color: #e76f51;
+  color: white;
+  font-size: larger;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  margin: 0 20px;
+}
+
+.middleContainer .text a {
+  text-decoration: none;
+  color: rgb(255, 0, 115);
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px 50px;
+  display: flex;
+  justify-content: center;
+  background: url("pexels-padrinan-2882630.jpg") center/cover no-repeat;
+}
+
+main .container {
+  width: 80%;
+  /* border: 2px solid blue; */
+  padding: 20px 10px;
+}
+
+main .container .showtext {
+  background: #fff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 6px 25px -5px #000;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+main .container .showtext p:first-child {
+  font-size: 35px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+main .container .showtext p:last-child {
+  word-spacing: 3px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+main .container .showpass {
+  position: relative;
+  margin-bottom: 10px;
+  box-shadow: 0 6px 25px -10px #000;
+}
+
+main .container .showpass input {
+  width: 100%;
+  height: 70px;
+  border: none;
+  outline: none;
+  /* border-radius: 10px; */
+  font-size: 30px;
+  padding: 0 20px;
+}
+
+main .container .showpass .icons {
+  position: absolute;
+  font-size: 32px;
+  right: 10%;
+  color: #000;
+  padding: 10px;
+  text-decoration: none;
+  margin: 5px;
+  transition: all 0.55s ease;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+main .container .showpass #icon2 {
+  right: 2%;
+  margin-left: 20px;
+}
+main .container .showpass span {
+  background-color: #fff;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 400;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  position: absolute;
+  display: none;
+  transition: all 0.5s ease;
+}
+main .container .showpass .icons:hover {
+  transform: translateY(-3px);
+}
+main .container .showpass #icon1:hover ~ span.copy {
+  display: inline;
+  right: 9%;
+  top: -10px;
+}
+
+main .container .showpass #icon2:hover ~ span.generate {
+  display: inline;
+  top: -10px;
+}
+
+@media (max-width: 1220px) {
+  main {
+    padding: 0;
+  }
+  main .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 930px) {
+  .middleContainer img {
+    display: none;
+    transition: 0.2s;
+  }
+  .middleContainer {
+    grid-template-columns: 1fr;
+  }
+  main {
+    padding: 0;
+  }
+  main .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 610px) {
+  .middleContainer .text h1 {
+    font-size: 20px;
+  }
+
+  .middleContainer .text {
+    padding: 5px;
+  }
+
+  header .btn-generator {
+    display: none;
+  }
+  header h1 {
+    font-size: 25px;
+  }
+  .middleContainer {
+    padding: 20px 10px;
+  }
+  main {
+    display: block;
+    padding: 0;
+  }
+  main .container {
+    /* width: 350px; */
+    padding: 10px;
+  }
+  main .container .showtext p:first-child {
+    font-size: 20px;
+  }
+  main .container .showtext p:last-child {
+    font-size: 13px;
+  }
+  main .container .showpass input {
+    font-size: 20px;
+    height: 50px;
+  }
+
+  main .container .showpass .icons {
+    font-size: 15px;
+  }
+
+  main .container .showpass #icon2:hover ~ span.generate {
+    display: inline;
+    top: -10px;
+    right: 5%;
+  }
+}
+
+main .container .customs {
+  background-color: #fff;
+  width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 6px 25px -5px #000;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+main .container .customs .heading {
+  font-size: 40px;
+  grid-column: 1/3;
+  text-align: center;
+  border-bottom: 2px solid #000;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+main .container .customs .requirements {
+  border-right: 2px solid #000;
+  /* width: 50%   ; */
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+main .container .customs .requirements ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+}
+
+main .container .customs .requirements ul li input {
+  float: right;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+main .container .customs .lenght {
+  /* width: 50%; */
+  font-size: 20px;
+  font-weight: 600;
+  padding: 0 20px;
+}
+main .container .customs .lenght span {
+  display: flex;
+  justify-content: space-between;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 490px) {
+  main .container .showtext p:first-child {
+    font-size: 17px;
+}
+
+  main {
+    height: auto;
+  }
+  main .container .customs {
+    height: 500px;
+    grid-template-columns: 1fr;
+    row-gap: 5%;
+  }
+
+  main .container .customs .heading {
+    grid-column: 1/2;
+    font-size: 20px;
+  }
+
+  main .container .customs .lenght span {
+    font-size: 20px;
+  }
+
+  main .container .customs .requirements {
+    border-right: none;
+  }
+}
+
+@media (max-width: 620px) {
+  main .container {
+    padding: 20px;
+  }
+  main .container .showtext,
+  main .container .showpass {
+    width: 100%;
+  }
+  main .container .showtext p:first-child {
+    font-size: 20px;
+  }
+
+  main .container .customs .lenght span {
+    font-size: 16px;
+  }
+}
+
+main .container .customs .lenght #passwordLength {
+  width: 60px;
+  height: 35px;
+  /* border-radius: 50%; */
+  text-align: center;
+  border: 2px solid #000;
+  font-size: 20px;
+}
+main .container .customs .lenght .status {
+  font-size: 15px;
+  margin: 20px auto;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+main .container .customs .lenght .status span {
+  color: red;
+  font-size: 13px;
+  animation: aaa 1s linear infinite;
+}
+
+@keyframes aaa {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+main .container .customs .lenght .generate {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  width: 100%;
+  height: 50px;
+  background-color: #e76f51;
+  color: white;
+  font-size: 23px;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  padding: 10px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+main .container .customs .lenght .generate:hover {
+  font-size: 20px;
+  background-color: #e76f51db;
+}

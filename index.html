@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasword Generator !!</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Password Generator</h1>
+      <a href="#container" class="btn-generator">Generator</a>
+    </header>
+
+    <div class="middleContainer">
+      <div class="text">
+        <h3>password generator tool</h3>
+        <h1>Select a Highly Secure password !</h1>
+        <p>
+          A strong password is the key to digital security, unlocking a world of
+          online protection.
+        </p>
+        <button>stay secure</button>
+        <a href="#">use pass generator</a>
+      </div>
+      <img src="reset-password.png" alt="" height="300" width="300" />
+    </div>
+
+    <main>
+      <div class="container" id="container">
+        <div class="showtext">
+          <p>
+            Instantly generate a secure , random password with this password
+            generator
+          </p>
+          <p>
+            Passwords are the silent guardians of our digital realms, securing
+            our virtual fortresses with an invisible shield of alphanumeric
+            might.
+          </p>
+        </div>
+        <div class="showpass">
+          <input type="text" id="textBox" />
+          <button class="icons" id="icon1" onclick="copyText()">
+            <i class="ri-file-copy-line"></i>
+          </button>
+          <button class="icons" id="icon2" onclick="generatePassword()">
+            <i class="ri-loop-right-line"></i>
+          </button>
+
+          <span class="copy">copy</span>
+          <span class="generate">Regenerate</span>
+        </div>
+
+        <div class="customs">
+          <div class="heading">customization</div>
+
+          <div class="requirements">
+            <ul>
+              <li>
+                <label for="numbers">Numbers </label>
+                <input
+                  type="checkbox"
+                  checked
+                  class="custom-checkbox"
+                  id="numbers"
+                />
+              </li>
+              <li>
+                <label for="symbol">Symbols </label
+                ><input
+                  type="checkbox"
+                  checked
+                  class="custom-checkbox"
+                  id="symbol"
+                />
+              </li>
+              <li>
+                <label for="lower">lowercase</label>
+                <input
+                  type="checkbox"
+                  checked
+                  class="custom-checkbox"
+                  id="lower"
+                />
+              </li>
+              <li>
+                <label for="upper">Uppercase</label>
+                <input
+                  type="checkbox"
+                  checked
+                  class="custom-checkbox"
+                  id="upper"
+                />
+              </li>
+            </ul>
+          </div>
+
+          <div class="lenght">
+            <span
+              >password lenght #<input
+                type="number"
+                value="8"
+                required
+                id="passwordLength"
+            /></span>
+            <div class="status"><span id="showStatus"></span></div>
+            <button
+              class="generate"
+              id="generateButton"
+              onclick="generatePassword()"
+            >
+              generate
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // script.js
+
+      function generatePassword() {
+        const textBox = document.getElementById("textBox");
+        const includeNumbers = document.getElementById("numbers");
+        const includeSymbols = document.getElementById("symbol");
+        const includeLowerCase = document.getElementById("lower");
+        const includeUpperCase = document.getElementById("upper");
+        const passwordLengthInput = document.getElementById("passwordLength");
+        const showStatus = document.getElementById("showStatus");
+
+        const passwordLength = parseInt(passwordLengthInput.value); // 
+        const includeNumbersValue = includeNumbers.checked;
+        const includeSymbolsValue = includeSymbols.checked;
+        const includeLowerCaseValue = includeLowerCase.checked;
+        const includeUpperCaseValue = includeUpperCase.checked;
+
+        if (passwordLength <= 0) {
+          showStatus.textContent = "Password length should be greater than 0!";
+          textBox.value = "";
+          return;
+        }
+
+        let password = "";
+        let allowedChars = "";
+
+        const numbers = "1234567890";
+        const symbols = "~!@#$%^&*()_+=-`";
+        const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+        const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        allowedChars += includeNumbersValue ? numbers : "";
+        allowedChars += includeSymbolsValue ? symbols : "";
+        allowedChars += includeLowerCaseValue ? lowerCase : "";
+        allowedChars += includeUpperCaseValue ? upperCase : "";
+
+        if (allowedChars === "") {
+          showStatus.textContent = "Select at least one character type!";
+          textBox.value = "";
+          return;
+        }
+
+        for (let i = 0; i < passwordLength; i++) {
+          let idx = Math.floor(Math.random() * allowedChars.length);
+          password += allowedChars[idx];
+        }
+
+        textBox.value = password;
+        showStatus.textContent = "";
+      }
+
+      function copyText() {
+        // Select the text field
+        var textToCopy = document.getElementById("textBox");
+
+        // Select the text inside the text field
+        textToCopy.select();
+        textToCopy.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        // Copy the selected text
+        document.execCommand("copy");
+
+        // Alert copied
+        alert("Text copied: " + textToCopy.value);
+      }
+    </script>
+  </body>
+</html>
